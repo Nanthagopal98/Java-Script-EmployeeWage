@@ -4,23 +4,23 @@ const WAGE_PER_HOUR = 20;
 const FULL_TIME = 8;
 const PART_TIME = 4;
 let workingHour;
-let check = Math.floor(Math.random() * 3);
-switch(check)
+
+function getWorkingHour(check)
 {
+    switch(check)
+    {
     case 1:
-        workingHour = FULL_TIME;
-        console.log("Employee Working Full Time");
-        break;
+        return FULL_TIME;
     case 2:
-        workingHour = PART_TIME;
-        console.log("Employee Working Part Time");
-        break;
+        return PART_TIME;
     default:
-        workingHour = 0;
-        console.log("Employee Absent");
-        break;
+        return workingHour = 0;
+    }
 }
-employeeSalary = workingHour * WAGE_PER_HOUR;
+let check = Math.floor(Math.random() * 3);
+workingHour = getWorkingHour(check)
+let employeeSalary = workingHour * WAGE_PER_HOUR;
 console.log("Today Salary : "+employeeSalary);
+
 
 
