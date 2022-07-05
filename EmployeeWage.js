@@ -43,3 +43,18 @@ while( day < MAX_WORKING_DAYS && totalWorkingHour < MAX_WORKING_HOURS)
     day++;
 }
 console.log("Total Working Hours : "+totalWorkingHour + " Total Working Days : "+ day + " Today Salary : "+totalWage);
+
+// UC-7A-Total Wage From Array Using ForEach
+let wage = 0;
+dailyWageArray.forEach(element =>
+    {
+        wage += element;
+    })
+    console.log("UC-7A-Total Wage Using ForEach : "+wage);
+
+// Using Reduce Method
+function reduceMethod(totalWage,dailyWage)
+{
+    return totalWage + dailyWage;
+}
+console.log("Total Wage Using Reduce Function : "+ dailyWageArray.reduce(reduceMethod,0));
