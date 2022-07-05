@@ -6,8 +6,12 @@ const MAX_WORKING_HOURS = 160;
 const FULL_TIME = 8;
 const PART_TIME = 4;
 let totalWorkingHour = 0;
+let totalWage = 0;
 let day = 1;
+let dailyWage = 0;
+let workingHour = 0;
 
+let dailyWageArray = new Array();
 function getWorkingHour(check)
 {
     switch(check)
@@ -20,11 +24,22 @@ function getWorkingHour(check)
         return workingHour = 0;
     }
 }
+function DailyWage()
+{
+    dailyWage = workingHour * WAGE_PER_HOUR;
+    dailyWageArray.push(dailyWage);
+    TotalWage();
+}
+function TotalWage()
+{
+    totalWage = totalWage + dailyWage;
+}
 while( day < MAX_WORKING_DAYS && totalWorkingHour < MAX_WORKING_HOURS)
 {
     let check = Math.floor(Math.random() * 3);
-    totalWorkingHour += getWorkingHour(check);
+    workingHour = getWorkingHour(check);
+    totalWorkingHour +=workingHour;
+    DailyWage();
     day++;
 }
-let totalSalary = totalWorkingHour * WAGE_PER_HOUR;
-console.log("Total Working Hours : "+totalWorkingHour + " Total Working Days : "+ day + " Today Salary : "+totalSalary);
+console.log("Total Working Hours : "+totalWorkingHour + " Total Working Days : "+ day + " Today Salary : "+totalWage);
