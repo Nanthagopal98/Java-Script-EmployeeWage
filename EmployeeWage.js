@@ -99,3 +99,15 @@ function CheckParttime(dailyWage)
     return dailyWage.includes("80");
 }
 console.log("UC-7F-Check for Partime Wages Are There? : "+ mapDailyWage.some(CheckParttime));
+
+// UC-7G-Find Employee Working Days
+let numberOfDays = 0;
+function FindWorkingDays(numberOfDays, dailyWage)
+{
+   if(dailyWage > 0)
+   {
+    numberOfDays++;
+   }
+   return numberOfDays;
+}
+console.log("UC-7G-Number of Working Days are : " + dailyWageArray.reduce(FindWorkingDays,0));
