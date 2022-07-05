@@ -92,3 +92,10 @@ function ConfirmFullTime(dailyWage)
     return dailyWage.includes("160");
 }
 console.log("UC-7E-Confirm Full Time Are Correct : " + fullTimeArray.every(ConfirmFullTime));
+
+// UC-7F-Check for Partime Wages
+function CheckParttime(dailyWage)
+{
+    return dailyWage.includes("80");
+}
+console.log("UC-7F-Check for Partime Wages Are There? : "+ mapDailyWage.some(CheckParttime));
