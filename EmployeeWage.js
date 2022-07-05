@@ -78,3 +78,10 @@ function FindFullTime(dailyWage)
 let fullTimeArray = mapDailyWage.filter(FindFullTime);
 console.log("UC-7C-Full Time Working Days Are");
 console.log(fullTimeArray);
+
+// UC-7D-Find First FullTime Occurance 
+function FindFirstOccurance(dailyWage)
+{
+    return dailyWage.includes("160");
+}
+console.log("UC-7D-Find First FullTime Occured on Day : "+ mapDailyWage.find(FindFirstOccurance));
