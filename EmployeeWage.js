@@ -86,7 +86,7 @@ function FindFirstOccurance(dailyWage)
 }
 console.log("UC-7D-Find First FullTime Occured on Day : "+ mapDailyWage.find(FindFirstOccurance));
 
-// UC-7E-Confirm Full Time Are Correct
+//  UC-7E-Confirm Full Time Array Hold Correct Values
 function ConfirmFullTime(dailyWage)
 {
     return dailyWage.includes("160");
