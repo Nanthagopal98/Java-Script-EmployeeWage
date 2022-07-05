@@ -12,6 +12,7 @@ let dailyWage = 0;
 let workingHour = 0;
 
 let dailyWageArray = new Array();
+let dailyWageMap = new Map();
 function getWorkingHour(check)
 {
     switch(check)
@@ -29,19 +30,23 @@ function DailyWage()
     dailyWage = workingHour * WAGE_PER_HOUR;
     dailyWageArray.push(dailyWage);
     TotalWage();
+    return dailyWage;
 }
 function TotalWage()
 {
     totalWage = totalWage + dailyWage;
+    return totalWage;
 }
+
 while( day <= MAX_WORKING_DAYS && totalWorkingHour <= MAX_WORKING_HOURS)
 {
     let check = Math.floor(Math.random() * 3);
     workingHour = getWorkingHour(check);
-    totalWorkingHour +=workingHour;
-    DailyWage();
+    totalWorkingHour +=workingHour;   
+    dailyWageMap.set(day, DailyWage());
     day++;
 }
+
 console.log("Total Working Hours : "+totalWorkingHour + " Total Working Days : "+ day + " Today Salary : "+totalWage);
 
 // UC-7A-Total Wage From Array Using ForEach
@@ -111,3 +116,17 @@ function FindWorkingDays(numberOfDays, dailyWage)
    return numberOfDays;
 }
 console.log("UC-7G-Number of Working Days are : " + dailyWageArray.reduce(FindWorkingDays,0));
+
+// UC-8- Find Total Wage Using Map
+let total = 0;
+day = 0;
+function MapTotalWageWithDailyWage(dailyWage)
+{
+    day++;
+    total += dailyWage;
+    return "Day "+day+" Wage: "+dailyWage+ " Total Wage: "+ total;   
+}
+let mapDailyWageWithTotal = dailyWageArray.map(MapTotalWageWithDailyWage);
+console.log(mapDailyWageWithTotal);
+
+console.log("Total salary Using Map : "+Array.from(dailyWageMap.values()).reduce(reduceMethod,0));
