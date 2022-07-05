@@ -34,7 +34,7 @@ function TotalWage()
 {
     totalWage = totalWage + dailyWage;
 }
-while( day < MAX_WORKING_DAYS && totalWorkingHour < MAX_WORKING_HOURS)
+while( day <= MAX_WORKING_DAYS && totalWorkingHour <= MAX_WORKING_HOURS)
 {
     let check = Math.floor(Math.random() * 3);
     workingHour = getWorkingHour(check);
@@ -58,3 +58,14 @@ function reduceMethod(totalWage,dailyWage)
     return totalWage + dailyWage;
 }
 console.log("Total Wage Using Reduce Function : "+ dailyWageArray.reduce(reduceMethod,0));
+
+// UC-7B- day Along With Wage Using Map Function
+day = 0;
+function mapDayWithWage(dailyWage)
+{
+    day++;
+    return day + " = " + dailyWage;   
+}
+let mapDailyWage = dailyWageArray.map(mapDayWithWage);
+console.log("UC-7B-Day Mapped with Wage");
+console.log(mapDailyWage);
