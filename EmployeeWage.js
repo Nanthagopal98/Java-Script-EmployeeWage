@@ -71,7 +71,7 @@ let mapForDayAndHourAndWage  = new Array();
 
 // UC-11B-Show Full Time Working Days
 {
-    console.log("UC-11B-Part Time Working Days Are:")
-    let fullTime = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour == 4).
+    console.log("UC-11B-Full Time Working Days Are:")
+    let fullTime = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour == 8).
         forEach(mapObject => console.log(mapObject.toString()));
 } 
