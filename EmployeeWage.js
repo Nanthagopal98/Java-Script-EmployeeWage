@@ -31,12 +31,13 @@ function TotalWage()
     return totalWage;
 }
 // UC-10-Using Objects To Store Values
+let mapForDayAndHourAndWage  = new Array();
 {
     let totalWorkingHour = 0;
     let day = 1;
     let workingHour = 0;
     let empwage = 0;
-    let mapForDayAndHourAndWage  = new Array();
+
     while (day <= MAX_WORKING_DAYS && totalWorkingHour <= MAX_WORKING_HOURS) {
         let check = Math.floor(Math.random() * 3);
         workingHour = getWorkingHour(check);
@@ -47,7 +48,8 @@ function TotalWage()
             DailyWorkingHour: workingHour,
             Wage: empwage,
             toString() {
-                return "\nDay: " + this.Day + "\t\tDaily Hours: " + this.DailyWorkingHour + "\t\tDailyWage: " + this.Wage;
+                return "\nDay: " + this.Day + "\t\tDaily Hours: " + this.DailyWorkingHour + "\t\tDailyWage: " 
+                + this.Wage;
             }
         });
         day++;
@@ -55,4 +57,14 @@ function TotalWage()
     console.log("Values"+mapForDayAndHourAndWage);
 }
 
+// UC-11-Using Object to Perform operations
+// UC-11A-Total Wage And Total Working Hour
+{
+    totalWage = mapForDayAndHourAndWage.filter(wageobject => wageobject.Wage > 0).
+        reduce((TotalWages, wageobject) => TotalWages += wageobject.Wage, 0);
+    console.log("Total Employee Wage: " + totalWage);
 
+    let totalWorkingHour = mapForDayAndHourAndWage.filter(hourObject => hourObject.DailyWorkingHour > 0).
+        reduce((totalHour, hourObject) => totalHour += hourObject.DailyWorkingHour, 0)
+    console.log("Employee Total Working Hour: " + totalWorkingHour);
+}
