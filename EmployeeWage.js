@@ -68,3 +68,10 @@ let mapForDayAndHourAndWage  = new Array();
         reduce((totalHour, hourObject) => totalHour += hourObject.DailyWorkingHour, 0)
     console.log("Employee Total Working Hour: " + totalWorkingHour);
 }
+
+// UC-11B-Show Full Time Working Days
+{
+    console.log("UC-11B-Part Time Working Days Are:")
+    let fullTime = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour == 4).
+        forEach(mapObject => console.log(mapObject.toString()));
+} 
