@@ -79,6 +79,15 @@ let mapForDayAndHourAndWage  = new Array();
 // UC-11C-Show Part Time Working Days Using Map
 {
     console.log("UC-11C-Part Time Working Days Are:");
-    let partTime = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour == 4).map(mapObject => mapObject.toString());
+    let partTime = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour == 4).
+        map(mapObject => mapObject.toString());
     console.log(partTime.toString());
+}
+
+// UC-11D-Show Absent Days Using Map
+{
+    console.log("UC-11D-Absent Days Are:");
+    let absent = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour == 0).
+        map(mapObject => mapObject.toString());
+    console.log(absent.toString());
 }
