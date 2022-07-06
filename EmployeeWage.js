@@ -139,7 +139,7 @@ const FindTotal = (total,value) =>
 {
     return total+value;
 }
-let hours = Array.from(dailyHourMap.values()).reduce(FindTotal,0) ;
+let hours = Array.from(dailyHourMap.values()).filter(hours => hours >0).reduce(FindTotal,0);
 console.log("Total Working Hours: "+hours);
 let FilterdeWorkingWage = dailyWageArray.filter(dailyWage => dailyWage > 0).reduce(FindTotal,0);
 console.log("Employe Wage After Filter And Reduce: "+FilterdeWorkingWage);
