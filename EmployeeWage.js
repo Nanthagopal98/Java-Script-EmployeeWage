@@ -13,6 +13,7 @@ let workingHour = 0;
 
 let dailyWageArray = new Array();
 let dailyWageMap = new Map();
+let dailyHourMap = new Map();
 function getWorkingHour(check)
 {
     switch(check)
@@ -43,6 +44,7 @@ while( day <= MAX_WORKING_DAYS && totalWorkingHour <= MAX_WORKING_HOURS)
     let check = Math.floor(Math.random() * 3);
     workingHour = getWorkingHour(check);
     totalWorkingHour +=workingHour;   
+    dailyHourMap.set(day, workingHour);
     dailyWageMap.set(day, DailyWage());
     day++;
 }
@@ -130,3 +132,14 @@ let mapDailyWageWithTotal = dailyWageArray.map(MapTotalWageWithDailyWage);
 console.log(mapDailyWageWithTotal);
 
 console.log("Total salary Using Map : "+Array.from(dailyWageMap.values()).reduce(reduceMethod,0));
+
+// UC- 9 - Arrow Function
+//UC-9A-Calculate TOtal Wage And Total Hour Worked
+const FindTotal = (total,value) =>
+{
+    return total+value;
+}
+let hours = Array.from(dailyHourMap.values()).reduce(FindTotal,0) ;
+console.log("Total Working Hours: "+hours);
+let FilterdeWorkingWage = dailyWageArray.filter(dailyWage => dailyWage > 0).reduce(FindTotal,0);
+console.log("Employe Wage After Filter And Reduce: "+FilterdeWorkingWage);
