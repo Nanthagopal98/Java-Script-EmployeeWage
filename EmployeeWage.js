@@ -143,3 +143,15 @@ let hours = Array.from(dailyHourMap.values()).reduce(FindTotal,0) ;
 console.log("Total Working Hours: "+hours);
 let FilterdeWorkingWage = dailyWageArray.filter(dailyWage => dailyWage > 0).reduce(FindTotal,0);
 console.log("Employe Wage After Filter And Reduce: "+FilterdeWorkingWage);
+
+// UC-9B-Find Full Time, Part Time And Absent Days
+let fullTime = new Array();
+let partTime = new Array();
+let absent = new Array();
+
+dailyHourMap.forEach((value,key) => {if(value == 8) {fullTime.push(key)} 
+                    else if(value == 4){partTime.push(key)} else {absent.push(key)}
+});
+console.log("Full Time Working Days Are: "+fullTime);
+console.log("Part Time Working Days Are: "+partTime);
+console.log("Absent Days Are: "+absent);
