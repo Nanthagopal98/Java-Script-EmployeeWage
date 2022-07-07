@@ -98,4 +98,24 @@ let mapForDayAndHourAndWage  = new Array();
     console.log(fullTime.toString());
  }
 
- 
+ // UC-11F-Find Number Of Working Days
+ {
+    console.log("UC-11F-Employee Working Days Are:");
+    let WorkingDays = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour > 0 ).
+    forEach(mapObject => console.log(mapObject.toString()));
+ }
+
+ // UC-11G-Check Part Time Available Or Not
+ {
+    console.log("UC-11G-Part Time Check:");
+    let partTimeAvailability = mapForDayAndHourAndWage.some(mapObject => mapObject.DailyWorkingHour == 4);
+    console.log(partTimeAvailability);
+ }
+
+ // UC-11H-Ensure Full Time Array Holding Correct Values
+ {
+    console.log("UC-11H-Ensure Full Time Array Holding Correct Values");
+    let fullTime = mapForDayAndHourAndWage.filter(mapObject => mapObject.DailyWorkingHour == 8).
+    some(mapObject => mapObject.Wage == 160)
+    console.log(fullTime);
+ }
