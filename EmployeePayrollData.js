@@ -59,6 +59,24 @@ class EmployeePayrollData {
             throw "Invalid Gender";
         }
     }
+    get startDate(){
+        return this._startDate;
+    }
+    set startDate(startDate){
+        let date = new Date();
+        let dateRegex = RegExp("^[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}$")
+        if (startDate <= date.toLocaleDateString()) {
+            if (dateRegex.test(startDate)) {
+                this._startDate = startDate
+            }
+            else {
+                throw "Invalid Format";
+            }
+        }
+        else{
+            throw "Date Will Be Less Than Are Equal To Today";
+        }
+    }
     get email(){
         return this._email;
     }
@@ -85,18 +103,24 @@ class EmployeePayrollData {
         }
     }
     toString() {
-        const option = { year: "numeric", month: "long", day: "numeric" };
+        /*const option = { year: "numeric", month: "long", day: "numeric" };
         const joiningDate = this.startDate === undefined ? "undefined" :
-            this.startDate.toLocaleDateString("en-US", option);
+            this.startDate.toLocaleDateString("en-US", option);*/
         return "Id: " + this.id + " Name: " + this.name + " Salary: " + this.salary +
-            " Gender: " + this.gender + " Start Date: " + joiningDate +" Email: "+this.email+ " Pin Code: "+this.pinCode;
+            " Gender: " + this.gender + " Start Date: " + this.startDate +" Email: "+this.email+ " Pin Code: "+this.pinCode;
     }
 }
-try{
-let AddedEmpDetail = new EmployeePayrollData(125, "Madhu", 20.12, "F", new Date(), "nantha.123@gmail.com.us", 600056);
-console.log(AddedEmpDetail.toString());
+try {
+    let AddedEmpDetail = new EmployeePayrollData(125, "Madhu", 20.12, "F", new Date("7-5-2022").toLocaleDateString(), "nantha.123@gmail.com.us", 600056);
+    console.log(AddedEmpDetail.toString());
 }
-catch (e)
-{
+catch (e) {
+    console.error(e);
+}
+try {
+    let AddedEmpDetail = new EmployeePayrollData(125, "Madhu", 20.12, "F", "1/12/2022", "nantha.123@gmail.com.us", 600056);
+    console.log(AddedEmpDetail.toString());
+}
+catch (e) {
     console.error(e);
 }
