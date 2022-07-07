@@ -91,3 +91,11 @@ let mapForDayAndHourAndWage  = new Array();
         map(mapObject => mapObject.toString());
     console.log(absent.toString());
 }
+ // UC-11E-Find First Full Time Occurance
+ {
+    console.log("UC-11E-First Full Time Working Day is:");
+    let fullTime = mapForDayAndHourAndWage.filter(mapObject => mapObject.Wage == 160).find(mapObject => mapObject.Wage == 160);
+    console.log(fullTime.toString());
+ }
+
+ 
